@@ -6,7 +6,7 @@ bool rightKnock = false; //right target
 bool keyAnswer = false;
 bool timeOver = false;
 
-String 
+char receivedChars[10]; 
 
 //game engine
 bool gameRunning = false;
@@ -36,34 +36,42 @@ void setup() {
 
 void loop() {
 
-  // 1. receive signal to start
-
-
+  // receive signal to start
 
 
   while(gameRunning) {
 
-    // 2. generate answer
+    // generate answer
     answer = generateAnswer();
 
+    // send answer
+
+
+    // read timeOver
 
     
-    while(!timeOver) {
-      if(timeOver) {
-        gameOver = false;
-        gameRunning = false;  
-      }
+    if(!timeOver) {
+
       // read knock 
 
       // compare knock
       compareKnockToAnswer();
 
+    } else {
+      gameOver = true;
+      gameRunning = false;  
     }
       
   }
 
   if(gameOver) {
-    //display gameover
+    // send gameover
+
+    // send score
+
+    score = 0;
+    timeOver = false;
+
   }
 
 }
